@@ -69,8 +69,8 @@ class Scene extends Body {
 
   set on (value) {
     this._on = value
-    document.getElementById("test").classList.toggle('on', value)
-    document.getElementById("test").classList.toggle('off', !value)
+    document.getElementById("nooff_game_box").classList.toggle('on', value)
+    document.getElementById("nooff_game_box").classList.toggle('off', !value)
   }
 
   get index () {
@@ -123,10 +123,10 @@ class Scene extends Body {
   async advance () {
     // GOAL_FX.play()
     this.paused = true
-    document.getElementById("test").classList.add('finish')
+    document.getElementById("nooff_game_box").classList.add('finish')
     await sleep(1000)
     this.index += 1
-    document.getElementById("test").classList.remove('finish')
+    document.getElementById("nooff_game_box").classList.remove('finish')
     await sleep(1000)
     if (this.finished) {
       this.goal.hidden = true
@@ -143,9 +143,9 @@ class Scene extends Body {
     death.setAttribute('x', this.guy.x - 32 + this.guy.width / 2)
     death.setAttribute('y', this.guy.y - 32 + this.guy.height / 2)
     this.guy.element.setAttribute('hidden', true)
-    document.getElementById("test").classList.add('dying')
+    document.getElementById("nooff_game_box").classList.add('dying')
     await sleep(700)
-    document.getElementById("test").classList.remove('dying')
+    document.getElementById("nooff_game_box").classList.remove('dying')
     this.reset()
     this.guy.element.removeAttribute('hidden')
     this.paused = false
