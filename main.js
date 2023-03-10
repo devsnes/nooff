@@ -88,7 +88,7 @@ class Scene extends Body {
     if (this.finished) {
       this.guy.hidden = true
       this.congrats.hidden = false
-      playWin()
+    //   playWin()
       return
     }
 
@@ -121,7 +121,7 @@ class Scene extends Body {
   }
 
   async advance () {
-    GOAL_FX.play()
+    // GOAL_FX.play()
     this.paused = true
     document.getElementById("test").classList.add('finish')
     await sleep(1000)
@@ -136,7 +136,7 @@ class Scene extends Body {
   }
 
   async death () {
-    DEATH_FX.play()
+    // DEATH_FX.play()
     this.deaths.value += 1
     this.paused = true
     const death = document.getElementById('death')
@@ -206,7 +206,7 @@ class Scene extends Body {
 
     if (bottom === 0) {
       this.guy.vy = upKey() ? -scale(1200) : 0
-      if (upKey()) JUMP_FX.play()
+    //   if (upKey()) JUMP_FX.play()
     } else {
       this.guy.vy = Math.min(scale(600), this.guy.vy + scale(120))
     }
@@ -235,8 +235,8 @@ class Game {
 
   toggle () {
     this.scene.on = !this.scene.on
-    if (this.scene.on) OFF_FX.play()
-    else ON_FX.play()
+    // if (this.scene.on) OFF_FX.play()
+    // else ON_FX.play()
   }
 
   keydown (event) {
