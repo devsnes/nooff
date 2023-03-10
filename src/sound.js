@@ -372,7 +372,7 @@ export const playWin = () => {
   MUSIC_WINNING_HIGH.play()
 }
 
-playMusic()
+// playMusic()
 
 //  Sound Effects
 

@@ -49,7 +49,7 @@ class Scene extends Body {
           this.fromURL = false
           this.levels = levels
           this.game.state = 'title'
-          // playMusic()
+        //   playMusic()
         }
         break
       case 'Escape':
