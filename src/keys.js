@@ -30,7 +30,7 @@ document.addEventListener('keydown', (event) => {
   if (NO_DEFAULT.has(event.key)) event.preventDefault()
 })
 
-document.addEventListener('keyup', ({key}) => {
+document.addEventListener('keyup', ({ key }) => {
   DOWN.delete(key)
 })
 
@@ -40,7 +40,7 @@ export const onPress = (index, f) => {
   HANDLERS.get(index).push(f)
 }
 
-requestAnimationFrame(function tick (time) {
+requestAnimationFrame(function tick(time) {
   const pad = navigator.getGamepads()[0]
   if (!pad) {
     PRESSED.clear()
