@@ -25,14 +25,14 @@ export const rightKey = () => (
     DOWN.has('d') || DOWN.has('ArrowRight') || PRESSED.has(15)
 )
 
-// document.addEventListener('keydown', (event) => {
-//     DOWN.add(event.key)
-//     if (NO_DEFAULT.has(event.key)) event.preventDefault()
-// })
+document.addEventListener('keydown', (event) => {
+    DOWN.add(event.key)
+    if (NO_DEFAULT.has(event.key)) event.preventDefault()
+})
 
-// document.addEventListener('keyup', ({ key }) => {
-//     DOWN.delete(key)
-// })
+document.addEventListener('keyup', ({ key }) => {
+    DOWN.delete(key)
+})
 
 const HANDLERS = new Map
 export const onPress = (index, f) => {
