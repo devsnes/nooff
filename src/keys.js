@@ -25,14 +25,14 @@ export const rightKey = () => (
     DOWN.has('d') || DOWN.has('ArrowRight') || PRESSED.has(15)
 )
 
-document.addEventListener('keydown', (event) => {
-    DOWN.add(event.key)
-    if (NO_DEFAULT.has(event.key)) event.preventDefault()
-})
+// document.addEventListener('keydown', (event) => {
+//     DOWN.add(event.key)
+//     if (NO_DEFAULT.has(event.key)) event.preventDefault()
+// })
 
-document.addEventListener('keyup', ({ key }) => {
-    DOWN.delete(key)
-})
+// document.addEventListener('keyup', ({ key }) => {
+//     DOWN.delete(key)
+// })
 
 const HANDLERS = new Map
 export const onPress = (index, f) => {
@@ -40,22 +40,22 @@ export const onPress = (index, f) => {
     HANDLERS.get(index).push(f)
 }
 
-// requestAnimationFrame(function tick(time) {
-//     const pad = navigator.getGamepads()[0]
-//     if (!pad) {
-//         PRESSED.clear()
-//         return
-//     }
-//     pad.buttons.forEach((button, index) => {
-//         if (button.pressed) {
-//             if (!PRESSED.has(index)) {
-//                 const handlers = HANDLERS.get(index)
-//                 if (handlers) handlers.forEach((f) => f())
-//             }
-//             PRESSED.add(index)
-//         } else {
-//             PRESSED.delete(index)
-//         }
-//     })
-//     requestAnimationFrame(tick)
-// })
+requestAnimationFrame(function tick(time) {
+    const pad = navigator.getGamepads()[0]
+    if (!pad) {
+        PRESSED.clear()
+        return
+    }
+    pad.buttons.forEach((button, index) => {
+        if (button.pressed) {
+            if (!PRESSED.has(index)) {
+                const handlers = HANDLERS.get(index)
+                if (handlers) handlers.forEach((f) => f())
+            }
+            PRESSED.add(index)
+        } else {
+            PRESSED.delete(index)
+        }
+    })
+    requestAnimationFrame(tick)
+})

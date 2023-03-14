@@ -222,7 +222,7 @@ class Game {
         )
         this.dialog = document.getElementById('dialog')
         onPress(1, this.toggle.bind(this))
-        document.addEventListener('keydown', this.keydown.bind(this))
+        // document.addEventListener('keydown', this.keydown.bind(this))
     }
 
     toggle() {
